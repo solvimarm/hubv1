@@ -1,6 +1,0 @@
-127.0.0.1 - - [26/Nov/2016:22:08:56 +0000] "GET /index HTTP/1.1" 200 1163 http-bio-8080-exec-2 712
-127.0.0.1 - - [26/Nov/2016:22:08:56 +0000] "GET /index HTTP/1.1" 200 1163 http-bio-8080-exec-1 1208
-127.0.0.1 - - [26/Nov/2016:22:08:56 +0000] "GET /js/bootstrap.min.js HTTP/1.1" 404 989 http-bio-8080-exec-4 10
-127.0.0.1 - - [26/Nov/2016:22:08:56 +0000] "GET /css/bootstrap.min.css HTTP/1.1" 404 993 http-bio-8080-exec-6 11
-127.0.0.1 - - [26/Nov/2016:22:08:56 +0000] "GET /css/testcss.css HTTP/1.1" 404 981 http-bio-8080-exec-3 4
-127.0.0.1 - - [26/Nov/2016:22:08:56 +0000] "GET /js/bootstrap.min.js HTTP/1.1" 404 989 http-bio-8080-exec-9 4

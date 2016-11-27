@@ -8,14 +8,10 @@ import net.viralpatel.spring.persistence.entities.Exercises
 import net.viralpatel.spring.persistence.entities.Set
 import java.util.ArrayList
 
-
+//Databaseconnector for workout releates stuff
 public class WorkoutRepository {
 
-		/*def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
-		def personXML= new XmlParser().parse(personFile)
-		def workoutFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//workoutplan.xml")
-		def workoutXML= new XmlParser().parse(workoutFile)
-*/
+	//Creates new workout cycle for user
 	def createCycle(String username, String date){
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def personXML= new XmlParser().parse(personFile)
@@ -51,6 +47,7 @@ public class WorkoutRepository {
 
 	}
 
+	//Gets current cycle for specific user
 	def getCurrentCycle(String username){
 
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
@@ -90,7 +87,7 @@ public class WorkoutRepository {
 
 	}
 
-
+	//Gets specific day in workout cycle for user
 	def getSpecificDay(String username, String date){
 
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
@@ -131,6 +128,7 @@ public class WorkoutRepository {
 
 	}
 
+	//Inputs weights that user lifted on specific day into database
 	def updateSet(String username, Double dbWeight, int noOfSet, int exerciseID, String date){
 
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
@@ -173,6 +171,7 @@ public class WorkoutRepository {
 
 	}
 
+	//Changes wentToGym attribute in day to true when user inputs weights for that day
 	def wentToGym(String username, String date){
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def personXML= new XmlParser().parse(personFile)
@@ -196,7 +195,7 @@ public class WorkoutRepository {
 						def preDayNode = userNode.workoutPlan[0].day.find{it ->
 							it.@Date == d.format("dd/MM/yyyy")}
 						if(preDayNode!=null){
-							//def check = preDayNode.wentToGym.findAll{}
+
 							if(preDayNode.wentToGym[0] != null){
 								loop = false
 							}
@@ -215,7 +214,7 @@ public class WorkoutRepository {
 		}
 
 	}
-
+	//Gets list of days with the same id == same type of workout
 	def getDaysByID(String username, int id, String goal ){
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def personXML= new XmlParser().parse(personFile)
@@ -235,8 +234,9 @@ public class WorkoutRepository {
 		}
 
 
-		}
+	}
 
+	//Gets the id of a day from its date. Used to find which type of workout a day is.
 	def getIdfromDate(String username,String date){
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def personXML= new XmlParser().parse(personFile)
@@ -246,10 +246,12 @@ public class WorkoutRepository {
 
 		if(userNode != null){
 			def dayNode = userNode.workoutPlan[0].day.find{it ->
-				it.@Date = date}
+				it.@Date == date}
+
 			if(dayNode != null){
-				def ID = dayNode.@id
-				return ID
+				def id = dayNode.@id
+
+				return id
 			}
 		}
 		return

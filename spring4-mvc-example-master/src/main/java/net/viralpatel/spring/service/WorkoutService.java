@@ -18,6 +18,7 @@ public class WorkoutService{
 	public UserRepository userRepository = new UserRepository();
 	public WorkoutRepository workoutRepository = new WorkoutRepository();
 
+	//Creates new workout cycle for user
 	public void createNewCycle(User user){
 
 		//String to Date
@@ -41,6 +42,7 @@ public class WorkoutService{
 		}
 	}
 
+	//Updates inputed weight for a specific day
 	public void updateDay(Day day,String username){
 		ArrayList<Exercises> exercises = day.getExercises();
 		for(int i=0; i<exercises.size(); i++){
@@ -56,6 +58,7 @@ public class WorkoutService{
 
 	}
 
+	//Gets the current cycle for user
 	public ArrayList<Day> getCurrentCycle(String username){
 
 		Object currentCycleObject = workoutRepository.getCurrentCycle(username);
@@ -67,6 +70,8 @@ public class WorkoutService{
 		}
 		return null;
 	}
+
+	//Gets info about specific day in current cycle
 	public Day getSpecificDay(String username, String date){
 
 		Object dayObject = workoutRepository.getSpecificDay(username, date);
@@ -78,6 +83,7 @@ public class WorkoutService{
 		return null;
 	}
 
+	//Gets which weekday a date is
 	public String getWeekday(String date){
 
 		SimpleDateFormat simpleDateformat1 = new SimpleDateFormat("dd/MM/yyyy");
@@ -94,6 +100,7 @@ public class WorkoutService{
 		}
 	}
 
+	//Gets id ==type of workout by date.
 	public int getIdByDate(String username,String date){
 		return Integer.valueOf((String)workoutRepository.getIdfromDate(username,date));
 	}

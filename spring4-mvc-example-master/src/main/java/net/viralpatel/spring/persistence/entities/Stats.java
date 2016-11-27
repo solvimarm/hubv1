@@ -2,6 +2,7 @@ package net.viralpatel.spring.persistence.entities;
 
 import java.util.Date;
 
+//Stats object that has the average weight for each day
 public class Stats{
 	private String date;
 	private Double average;

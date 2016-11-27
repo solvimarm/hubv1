@@ -2,6 +2,7 @@ package net.viralpatel.spring.persistence.entities;
 
 import java.util.Date;
 
+//User that included info about user.
 public class User{
 	private String name;
 	private String password;

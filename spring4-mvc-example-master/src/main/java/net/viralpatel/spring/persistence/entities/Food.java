@@ -2,8 +2,9 @@ package net.viralpatel.spring.persistence.entities;
 
 import java.util.Date;
 
+//Food object
 public class Food{
-  private String name;
+  	private String name;
 	private String category;
 	private String typeofmeal;
 

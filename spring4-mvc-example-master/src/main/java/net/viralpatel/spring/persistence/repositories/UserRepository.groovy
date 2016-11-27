@@ -4,9 +4,10 @@ import groovy.xml.XmlUtil
 import java.security.SecureRandom
 import net.viralpatel.spring.persistence.entities.User
 
-
+//Databaseconnector for user releated stuff
 public class UserRepository {
 
+	//Inputs information about user into database
 	def createNewUser(User user){
 		def xmlFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def xml= new XmlParser().parse(xmlFile)
@@ -35,7 +36,7 @@ public class UserRepository {
 		return false;
 	}
 
-
+	//Finds user and returns it if found
 	def findUser(String username){
 		def xmlFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def xml= new XmlParser().parse(xmlFile)
@@ -51,7 +52,7 @@ public class UserRepository {
 		}
 	}
 
-
+	//Updates info about user in database
 	def updateUser(User user){
 		def xmlFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def xml= new XmlParser().parse(xmlFile)

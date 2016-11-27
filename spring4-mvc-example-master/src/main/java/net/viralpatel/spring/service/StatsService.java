@@ -16,10 +16,12 @@ public class StatsService{
 	public UserRepository userRepository = new UserRepository();
 	public WorkoutRepository workoutRepository = new WorkoutRepository();
 
+	//Gets stats about a specific type of workout 
 	public ArrayList getAveragePerDay(String username, int id, String goal ){
 		Object daysWithID = workoutRepository.getDaysByID(username, id, goal);
 
 		ArrayList<Stats> stats = new ArrayList<Stats>();
+		
 
 		if(daysWithID instanceof ArrayList<?>){
 			ArrayList<Day> days = (ArrayList<Day>) daysWithID;
@@ -30,9 +32,12 @@ public class StatsService{
 				for(int j = 0 ; j < exer.size(); j ++){
 					ArrayList<Set> sets = exer.get(j).getSet();
 					for(int k = 0; k < sets.size(); k++){
-						sum += sets.get(k).getWeight();
-						count++;
+						if(sets.get(k).getWeight() != null){
+							sum += sets.get(k).getWeight();
+							count++;
 						}
+						else return null;
+					}
 				}
 				stats.add(new Stats(days.get(i).getDate(), sum/count));
 

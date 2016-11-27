@@ -29,9 +29,11 @@ public class WorkoutController extends HttpServlet{
 	private static StatsService statsService = new StatsService();
 	private static UserService userService = new UserService();
 
-	//Gets the current workout cycle and shows it to the user
+	//Gets the homepage specific for each user. 
+	//Includes current workout cycle.
 	@RequestMapping(value = "homepage", method = RequestMethod.GET)
 	public String getCurrentCycleGet(HttpSession session, ModelMap model){
+		//Checks if user is logged in
 		if(session.getAttribute("username") == null){
 			VIEW_INDEX = "index";
 			return "redirect:/"+VIEW_INDEX;
@@ -120,9 +122,10 @@ public class WorkoutController extends HttpServlet{
 		return "redirect:/"+VIEW_INDEX;
 	}
 
-	//Show user the wholw workout for a specific day.
+	//Show user the whole workout for a specific day.
 	@RequestMapping(value = "workoutOfToday", method = RequestMethod.GET)
 	public String getSpecificDayGet(HttpSession session, ModelMap model){
+		//Checks if user is logged in
 		if(session.getAttribute("username") == null){
 			VIEW_INDEX = "index";
 			return "redirect:/"+VIEW_INDEX;
@@ -148,7 +151,7 @@ public class WorkoutController extends HttpServlet{
 		return VIEW_INDEX;
 	}
 
-	//Not fully implemented
+	//Adds to database the weights that user lifted on that specific day
 	@RequestMapping(value = "workoutOfToday", method= RequestMethod.POST)
 	public String getSpecificDayPost(HttpSession session, HttpServletRequest request, ModelMap model){
 
@@ -185,29 +188,43 @@ public class WorkoutController extends HttpServlet{
 		VIEW_INDEX = "homepage";
 		return "redirect:/"+VIEW_INDEX;
 	}
+	//Allows the user to see stats about a specific type of workouts. 
+	//Can only be accessed from specific day. 
+	//Shows you workout stats for that type of day.
 	@RequestMapping(value = "stats", method = RequestMethod.GET)
 	public String statsGet(HttpSession session, ModelMap model){
+		//Checks if user is logged in
 		if(session.getAttribute("username") == null){
 			VIEW_INDEX = "index";
 			return "redirect:/"+VIEW_INDEX;
 		}
+
 		String username = (String)session.getAttribute("username");
 		String date = (String)session.getAttribute("date");
+
 
 		ArrayList user = userService.findUser(username);
 		String goal = (String)user.get(1);
 		int id = workoutService.getIdByDate(username, date);
 		ArrayList<Stats> stats = statsService.getAveragePerDay(username,id,goal);
-		ArrayList average = new ArrayList();
-		for(int i = 0; i < stats.size();i++){
-			average.add(stats.get(i).getAverage());
-		}
-		model.addAttribute("average",average);
+		
+		model.addAttribute("stats",stats);
 
-		LineChartService lcs = new LineChartService();
-		lcs.getLineChart(username, id, goal);
-		model.addAttribute("username", username);
-		VIEW_INDEX = "stats";
+		//If there are no stats to look at then the user is encouraged to workout more
+		if(stats == null){
+			model.addAttribute("display","none");
+			model.addAttribute("progressHeader","You have to workout more to be able to see your progress");
+		}
+		//Picture is shown that shows progress as well as average weight for each day
+		else{
+			LineChartService lcs = new LineChartService();
+			lcs.getLineChart(username, id, goal);
+			model.addAttribute("progressHeader","Average weight per day");
+			model.addAttribute("username", username);
+			model.addAttribute("display","inline");
+
+		}
+		VIEW_INDEX = "stats";		
 		return VIEW_INDEX;
 	}
 }

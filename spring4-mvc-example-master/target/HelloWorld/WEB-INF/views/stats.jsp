@@ -3,7 +3,7 @@
 
 <html>
 	<head>
-		<title>Suggested foodplan</title>
+		<title>Progress</title>
 		<link rel="stylesheet" href="../css/bootstrap.min.css">
 		<script src="../js/bootstrap.min.js"></script>
 		<meta charset="utf-8">
@@ -23,16 +23,16 @@
 			<div class="jumbotron">
 				<h1>Your Statistics!</h1>
   				<p>Now you can view your progress.</p>
-			</div>	 
-
-			<ul class="list-group list-group-flush">
-		     	<c:forEach var="i" items="${average}">
-	    			<li class="list-group-item">${i}</li>
+			</div>
+			<h3 class="list-group-item-heading">${progressHeader}</h3>	 
+			<ul class="list-group">
+	     		<c:forEach var="stat" items="${stats}">
+	   				<li class="list-group-item">${stat.date} : ${stat.average}</li>
 	    		</c:forEach>
-	 		</ul>				
-		</div>
-		<div>
-			<img src='<c:url value="/resources/img/${username}.jpeg" />' alt=""> 
+	 		</ul>
+	 		<div style="display: ${display};">
+				<img src='<c:url value="/resources/img/${username}.jpeg" />' alt=""> 
+			</div>				
 		</div>
 		</p>
 	</body>

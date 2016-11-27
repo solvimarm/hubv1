@@ -4,7 +4,7 @@ import net.viralpatel.spring.persistence.entities.User;
 
 import net.viralpatel.spring.persistence.repositories.UserRepository;
 
-
+// Used for athuntication when registering a new user
 public class VerifyService{
 
 	public UserRepository userRepository = new UserRepository();

@@ -3,6 +3,7 @@ package net.viralpatel.spring.persistence.entities;
 import java.util.Date;
 import java.util.ArrayList;
 
+//One day that includes exercises
 public class Day{
   private Double weight;
 	private String date;

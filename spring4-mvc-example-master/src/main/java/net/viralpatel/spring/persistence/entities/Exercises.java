@@ -3,6 +3,7 @@ package net.viralpatel.spring.persistence.entities;
 import java.util.Date;
 import java.util.ArrayList;
 
+//One Exercise that includes sets.
 public class Exercises{
   private String name;
 	private ArrayList<Set> set;

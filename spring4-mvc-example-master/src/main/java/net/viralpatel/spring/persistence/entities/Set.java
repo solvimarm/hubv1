@@ -2,6 +2,7 @@ package net.viralpatel.spring.persistence.entities;
 
 import java.util.Date;
 
+//Set that has number of reps in them
 public class Set{
   private int rep;
 	private Double weight;

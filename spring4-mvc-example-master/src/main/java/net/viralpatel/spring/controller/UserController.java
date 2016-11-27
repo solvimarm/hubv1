@@ -143,6 +143,8 @@ public class UserController extends HttpServlet{
 	//Gets the user profile page
 	@RequestMapping(value = "myProfile", method = RequestMethod.GET)
 	public String myProfileGet(HttpSession session, ModelMap model){
+		
+		//Checks if user is logged in
 		if(session.getAttribute("username") == null){
 			VIEW_INDEX = "index";
 			return "redirect:/"+VIEW_INDEX;
@@ -152,6 +154,7 @@ public class UserController extends HttpServlet{
 
 		ArrayList user = userService.findUser(username);
 
+		//Adds user info into view
 		model.addAttribute("name",user.get(0));
 		model.addAttribute("goal",user.get(1));
 		model.addAttribute("email",user.get(2));
@@ -171,9 +174,10 @@ public class UserController extends HttpServlet{
 		return "redirect:/"+VIEW_INDEX;
 	}
 	//Gets update user page
-	//Not fully implemented
 	@RequestMapping(value = "updateUser", method = RequestMethod.GET)
 	public String updateUserGet(HttpSession session, ModelMap model){
+		
+		//Checks if users is logged in
 		if(session.getAttribute("username") == null){
 			VIEW_INDEX = "index";
 			return "redirect:/"+VIEW_INDEX;
@@ -181,6 +185,7 @@ public class UserController extends HttpServlet{
 		String username = (String)session.getAttribute("username");
 		ArrayList user = userService.findUser(username);
 
+		//Inputs current user info into view
 		model.addAttribute("goal",user.get(1));
 		model.addAttribute("email",user.get(2));
 		model.addAttribute("age",user.get(3));
@@ -191,22 +196,21 @@ public class UserController extends HttpServlet{
 		return VIEW_INDEX;
 	}	
 	//Updates user informaition
-	//Not fully implemented
 	@RequestMapping(value = "updateUser", method = RequestMethod.POST)
 	public String updateUserPost(HttpServletRequest request, HttpSession session, ModelMap model){
 
+		//Checks if users is logged in
+		if(session.getAttribute("username") == null){
+			VIEW_INDEX = "index";
+			return "redirect:/"+VIEW_INDEX;
+		}
+		
 		String username = (String)session.getAttribute("username");
 		String goal = request.getParameter("goal");
 		int age	 = Integer.parseInt(request.getParameter("age"));
 		String weight = request.getParameter("weight");
-		
 
-			//Keeps input if not succesful
-			model.addAttribute("age", age);
-			model.addAttribute("goal", goal );
-			model.addAttribute("weight", weight);
-
-
+		//Changes user info in database
 		User user = new User(null,null,null,age,username,goal,null,Double.parseDouble(weight),null);
 
 		userService.updateUser(user);
@@ -214,8 +218,10 @@ public class UserController extends HttpServlet{
 		VIEW_INDEX = "myProfile";
 		return "redirect:/"+ VIEW_INDEX;
 	}
+	//Logs out user
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logOutGet(HttpSession session) {
+		
 		session.invalidate();
 		VIEW_INDEX = "index";
 		return "redirect:/"+VIEW_INDEX;

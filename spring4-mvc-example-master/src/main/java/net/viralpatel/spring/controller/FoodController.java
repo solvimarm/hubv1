@@ -14,7 +14,7 @@ import net.viralpatel.spring.persistence.entities.Food;
 import net.viralpatel.spring.service.FoodService;
 import net.viralpatel.spring.service.UserService;
 
-//Not fully implemented
+
 @Controller
 public class FoodController extends HttpServlet{
 
@@ -23,8 +23,11 @@ public class FoodController extends HttpServlet{
 	private static FoodService foodService = new FoodService();
 	private static UserService userService = new UserService();
 
+	//Gets diet plan recomended specific for each user
 	@RequestMapping(value = "foodPlan", method = RequestMethod.GET)
 	public String publishSuggestedFoodsPost(HttpSession session, ModelMap model){
+		
+		//Checks if user is logged in
 		if(session.getAttribute("username") == null){
 			VIEW_INDEX = "index";
 			return "redirect:/"+VIEW_INDEX;

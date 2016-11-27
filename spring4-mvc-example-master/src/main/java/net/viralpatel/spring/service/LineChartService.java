@@ -19,6 +19,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 
 public class LineChartService{
 
+   //Gets progress chart for user for a specifci type of workout
    public void getLineChart(String username, int id, String goal) {
 
       StatsService ss = new StatsService();
