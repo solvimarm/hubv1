@@ -32,14 +32,13 @@ public class WorkoutService{
 			c.add(Calendar.DATE, 1); // Adding 1 day
 			Date date = c.getTime();
 			String toomorrow = dateFormat.format(date);
-			//Date currDateFormat = dateFormat.parse(currentDate);
 			if(date.compareTo(nextUpdateDate) >= 0) {
 				workoutRepository.createCycle(user.getUsername(), toomorrow);
 			}
 
 		}catch(Exception e){
-			System.out.println("þú ert inní exception auli");
-		}	
+
+		}
 	}
 
 	public void updateDay(Day day,String username){
@@ -52,7 +51,7 @@ public class WorkoutService{
 				workoutRepository.updateSet(username, set.getWeight(), set.getNumber(), exercise.getId(), day.getDate());
 			}
 		}
-		
+
 		workoutRepository.wentToGym(username, day.getDate());
 
 	}
@@ -60,18 +59,16 @@ public class WorkoutService{
 	public ArrayList<Day> getCurrentCycle(String username){
 
 		Object currentCycleObject = workoutRepository.getCurrentCycle(username);
-		
+
 		if(currentCycleObject instanceof ArrayList<?>){
 			ArrayList<Day> currentCycle = (ArrayList<Day>) currentCycleObject;
 			ArrayList<Exercises> exer = currentCycle.get(0).getExercises();
-			System.out.println(currentCycle.get(0).getWentToGym());
-			System.out.println(exer.get(0).getName());
 			return currentCycle;
 		}
 		return null;
 	}
 	public Day getSpecificDay(String username, String date){
-		
+
 		Object dayObject = workoutRepository.getSpecificDay(username, date);
 
 		if(dayObject instanceof Day){
@@ -83,7 +80,7 @@ public class WorkoutService{
 
 	public String getWeekday(String date){
 
-		SimpleDateFormat simpleDateformat1 = new SimpleDateFormat("dd/MM/yyyy"); 
+		SimpleDateFormat simpleDateformat1 = new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat simpleDateformat2 = new SimpleDateFormat("EEEE");
 		Date day;
 		String weekday;
@@ -93,7 +90,6 @@ public class WorkoutService{
 			return weekday;
 
 		}catch(Exception e){
-			System.out.println("þú ert inní exception auli");
 			return null;
 		}
 	}

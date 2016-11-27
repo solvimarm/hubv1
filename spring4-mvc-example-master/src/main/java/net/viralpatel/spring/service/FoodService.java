@@ -3,7 +3,7 @@ package net.viralpatel.spring.service;
 import java.util.ArrayList;
 import net.viralpatel.spring.persistence.entities.Food;
 import net.viralpatel.spring.persistence.repositories.FoodRepository;
-//Not fully implemented
+
 public class FoodService{
 
 	public FoodRepository foodRepository = new FoodRepository();

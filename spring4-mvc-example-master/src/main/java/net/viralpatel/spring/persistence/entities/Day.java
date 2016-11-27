@@ -8,7 +8,6 @@ public class Day{
 	private String date;
 	private String wenttogym;
 	private ArrayList<Exercises> exercises;
-  //Dagur extendar Exercises SKOÐA BETUR
 
 
 	public Day (Double weight, String date, String wenttogym, ArrayList<Exercises> exercises){

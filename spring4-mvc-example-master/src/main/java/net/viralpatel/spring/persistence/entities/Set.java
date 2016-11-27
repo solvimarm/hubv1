@@ -3,7 +3,7 @@ package net.viralpatel.spring.persistence.entities;
 import java.util.Date;
 
 public class Set{
-  	private int rep;
+  private int rep;
 	private Double weight;
 	private int number;
 

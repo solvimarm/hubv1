@@ -4,7 +4,7 @@ import net.viralpatel.spring.persistence.entities.User;
 
 import net.viralpatel.spring.persistence.repositories.UserRepository;
 
-//Not fully implemented
+
 public class VerifyService{
 
 	public UserRepository userRepository = new UserRepository();
@@ -29,7 +29,7 @@ public class VerifyService{
 
 	public Boolean verifyPass(String password){
 		if(password.length() < 6)return false;
-		return true;	
+		return true;
 	}
 
 	public Boolean verifyEmail(String email){
@@ -42,5 +42,5 @@ public class VerifyService{
 		if(!weight.matches("[0-9]+"))return false;
 		return true;
 	}
-	
+
 }

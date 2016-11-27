@@ -14,7 +14,7 @@ public class FoodRepository {
 		def foodFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//dietplan.xml")
 		def foodXML= new XmlParser().parse(foodFile)
 
-		def userNode = personXML.person.find{it -> 
+		def userNode = personXML.person.find{it ->
 			it.@username == username}
 
 		ArrayList<Food> dietplan = new ArrayList<Food>()
@@ -23,16 +23,15 @@ public class FoodRepository {
 			def dietCategory=foodXML.category.find{it ->
 				it.@id == goal}
 			dietCategory.name.each{it ->
-				println it.@typeOfMeal
-				 
+
 			Food foods = new Food(it.text(), goal, it.@typeOfMeal )
 			dietplan.add(foods)
 			}
 
-			
+
 		}
 
 		return dietplan
 	}
 
-}	
+}

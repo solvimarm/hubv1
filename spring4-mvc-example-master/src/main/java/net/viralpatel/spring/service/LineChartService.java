@@ -11,9 +11,9 @@ import net.viralpatel.spring.persistence.repositories.UserRepository;
 import net.viralpatel.spring.persistence.repositories.WorkoutRepository;
 
 import java.io.*;
-import org.jfree.chart.JFreeChart; 
-import org.jfree.chart.ChartFactory; 
-import org.jfree.chart.ChartUtilities; 
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -24,7 +24,6 @@ public class LineChartService{
       StatsService ss = new StatsService();
 
       ArrayList<Stats> stats = ss.getAveragePerDay(username, id, goal);
-      System.out.println(stats.get(0).getAverage());
 
       try{
        DefaultCategoryDataset line_chart_dataset = new DefaultCategoryDataset();
@@ -39,9 +38,9 @@ public class LineChartService{
          true,true,false);
 
       int width = 640; /* Width of the image */
-      int height = 480; /* Height of the image */ 
-      File lineChart = new File( "src/main/webapp/resources/img/"+username+".jpeg" ); 
-      ChartUtilities.saveChartAsJPEG(lineChart ,lineChartObject, width ,height);        
+      int height = 480; /* Height of the image */
+      File lineChart = new File( "src/main/webapp/resources/img/"+username+".jpeg" );
+      ChartUtilities.saveChartAsJPEG(lineChart ,lineChartObject, width ,height);
       }
       catch(Exception e){
 

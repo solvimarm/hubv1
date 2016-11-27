@@ -28,7 +28,7 @@ public class WorkoutController extends HttpServlet{
 	private static WorkoutService workoutService = new WorkoutService();
 	private static StatsService statsService = new StatsService();
 	private static UserService userService = new UserService();
-	
+
 	//Gets the current workout cycle and shows it to the user
 	@RequestMapping(value = "homepage", method = RequestMethod.GET)
 	public String getCurrentCycleGet(HttpSession session, ModelMap model){
@@ -36,7 +36,7 @@ public class WorkoutController extends HttpServlet{
 			VIEW_INDEX = "index";
 			return "redirect:/"+VIEW_INDEX;
 		}
-		
+
 		//Finds current workout cycle for the user
 		String username = (String)session.getAttribute("username");
 
@@ -133,8 +133,8 @@ public class WorkoutController extends HttpServlet{
 		String date = (String)session.getAttribute("date");
 
 		Day day = workoutService.getSpecificDay(username, date);
-		
-		//Input information from day into view. 
+
+		//Input information from day into view.
 		ArrayList<Exercises> exercises = day.getExercises();
 		int numberOfInputs=0;
 
@@ -180,8 +180,8 @@ public class WorkoutController extends HttpServlet{
 		}
 		//Add input into databse
 		workoutService.updateDay(day, username);
-	
-			
+
+
 		VIEW_INDEX = "homepage";
 		return "redirect:/"+VIEW_INDEX;
 	}
@@ -197,9 +197,7 @@ public class WorkoutController extends HttpServlet{
 		ArrayList user = userService.findUser(username);
 		String goal = (String)user.get(1);
 		int id = workoutService.getIdByDate(username, date);
-		System.out.println("<----------- "+date);
 		ArrayList<Stats> stats = statsService.getAveragePerDay(username,id,goal);
-		System.out.println("<----------- framhja");
 		ArrayList average = new ArrayList();
 		for(int i = 0; i < stats.size();i++){
 			average.add(stats.get(i).getAverage());
@@ -213,12 +211,3 @@ public class WorkoutController extends HttpServlet{
 		return VIEW_INDEX;
 	}
 }
-
-
-
-
-
-
-
-
-

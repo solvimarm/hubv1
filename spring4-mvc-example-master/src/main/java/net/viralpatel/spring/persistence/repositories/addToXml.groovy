@@ -19,12 +19,11 @@ public class addToXml {
 	def public getUserName(String id){
 		def xmlFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def xml= new XmlParser().parse(xmlFile)
-		println "idið er :  "+id
-		def nodeUser = xml.person.find{it -> 
+		def nodeUser = xml.person.find{it ->
 			it.@id == id}
 		return nodeUser.text()
 
 	}
 
 
-}	
+}

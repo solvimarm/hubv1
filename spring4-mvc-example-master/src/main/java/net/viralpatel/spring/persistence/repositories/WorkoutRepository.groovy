@@ -22,24 +22,20 @@ public class WorkoutRepository {
 		def workoutFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//workoutplan.xml")
 		def workoutXML= new XmlParser().parse(workoutFile)
 
-		def userNode = personXML.person.find{it -> 
+		def userNode = personXML.person.find{it ->
 			it.@username == username}
-			println "comment 1"
-			println userNode
 		//def df1 = new SimpleDateFormat("dd/MM/yyyy")
 		//date = df1.parse(date)
 		Date d = Date.parse("dd/MM/yyyy", date)
 
 		if(userNode != null){
 			def goal = userNode.goal.text()
-			println "comment 2"
-			def workoutNode = workoutXML.plan.find{it -> 
+			def workoutNode = workoutXML.plan.find{it ->
 				it.@id == goal}
 
 			if(workoutNode != null){
-				println "comment 3"
-				workoutNode.day.each{it -> 
-					def node = userNode.workoutPlan[0]	
+				workoutNode.day.each{it ->
+					def node = userNode.workoutPlan[0]
 					it.@Date = d.format("dd/MM/yyyy")
 					it.@Goal = userNode.goal.text()
 					//new Node (node,"", d.toString())
@@ -51,7 +47,7 @@ public class WorkoutRepository {
 				personFile.withWriter ("utf-8") {writer ->
 					writer.writeLine(new XmlUtil().serialize(personXML))}
 			}
-		}	
+		}
 
 	}
 
@@ -62,7 +58,7 @@ public class WorkoutRepository {
 		def workoutFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//workoutplan.xml")
 		def workoutXML= new XmlParser().parse(workoutFile)
 
-		def userNode = personXML.person.find{it -> 
+		def userNode = personXML.person.find{it ->
 			it.@username == username}
 
 		def nextUpdate = userNode.nextUpdate.text()
@@ -73,7 +69,7 @@ public class WorkoutRepository {
 			def prevDate= d.format("dd/MM/yyyy")
 			def workoutDay=userNode.workoutPlan[0].day.find{it ->
 				it.@Date == prevDate}
-			
+
 			ArrayList<Exercises> exercises = new ArrayList<Exercises>()
 
 			workoutDay.exercise.each{it ->
@@ -87,7 +83,7 @@ public class WorkoutRepository {
 			}
 
 			Day day = new Day(userNode.userWeight.text().toDouble(), prevDate, userNode.wentToGym.text(), exercises)
-			currCycle.add(day)	
+			currCycle.add(day)
 		}
 
 		return currCycle
@@ -101,7 +97,7 @@ public class WorkoutRepository {
 		def personXML= new XmlParser().parse(personFile)
 		def workoutFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//workoutplan.xml")
 		def workoutXML= new XmlParser().parse(workoutFile)
-		def userNode = personXML.person.find{it -> 
+		def userNode = personXML.person.find{it ->
 			it.@username == username}
 
 		def workoutDay = userNode.workoutPlan[0].day.find{it ->
@@ -122,7 +118,7 @@ public class WorkoutRepository {
 						Set set = new Set(iterator.reps.text().toInteger(), null, iterator.@id.toInteger() )
 					sets.add(set)
 					}
-					
+
 				}
 				Exercises exercise = new Exercises( it.name.text(), sets, it.@id.toInteger() )
 				exercises.add(exercise)
@@ -130,7 +126,7 @@ public class WorkoutRepository {
 
 
 			Day day = new Day(userNode.userWeight.text().toDouble(), date, workoutDay.wentToGym.text(), exercises)
-			
+
 			return day
 
 	}
@@ -141,21 +137,17 @@ public class WorkoutRepository {
 		def personXML= new XmlParser().parse(personFile)
 		def workoutFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//workoutplan.xml")
 		def workoutXML= new XmlParser().parse(workoutFile)
-		println "comment 1"
-		def userNode = personXML.person.find{it -> 
+		def userNode = personXML.person.find{it ->
 			it.@username == username}
 		if(userNode != null){
 		def workoutDay = userNode.workoutPlan[0].day.find{it ->
 			it.@Date == date}
-			println "comment 2"
 			if(workoutDay != null){
 				def exerciseNode = workoutDay.exercise.find{it ->
 					it.@id == exerciseID.toString()}
-					println "comment 3"
 				if(exerciseNode != null){
 					def setNode = exerciseNode.set.find{it ->
 						it.@id == noOfSet.toString()}
-						println "comment 4"
 					if(setNode != null){
 						//def check = setNode.dbWeight.find{}
 						if(setNode.dbWeight[0] != null){
@@ -165,18 +157,17 @@ public class WorkoutRepository {
 							new Node (setNode, "dbWeight", dbWeight)
 						}
 						//new Node (setNode, "dbWeight", dbWeight)
-						println "updateset er her"
 						personFile.withWriter ("utf-8") {writer ->
 							writer.writeLine(new XmlUtil().serialize(personXML))}
 						return true
 
 					}
-					
+
 
 				}
-				
+
 			}
-					
+
 		}
 
 
@@ -185,16 +176,13 @@ public class WorkoutRepository {
 	def wentToGym(String username, String date){
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def personXML= new XmlParser().parse(personFile)
-		println "er inni í went to gym"
-		def userNode = personXML.person.find{it -> 
+		def userNode = personXML.person.find{it ->
 			it.@username == username}
 		if(userNode != null){
 			def dayNode = userNode.workoutPlan[0].day.find{it ->
 				it.@Date == date}
-				println "fann user"
 				if(dayNode!=null){
-					Date d = Date.parse("dd/MM/yyyy", date)		
-					println "fann day node"
+					Date d = Date.parse("dd/MM/yyyy", date)
 					if(dayNode.wentToGym[0] != null){
 						dayNode.wentToGym[0].value = true
 					}
@@ -208,13 +196,13 @@ public class WorkoutRepository {
 						def preDayNode = userNode.workoutPlan[0].day.find{it ->
 							it.@Date == d.format("dd/MM/yyyy")}
 						if(preDayNode!=null){
-							//def check = preDayNode.wentToGym.findAll{}	
+							//def check = preDayNode.wentToGym.findAll{}
 							if(preDayNode.wentToGym[0] != null){
 								loop = false
 							}
 							else{
 								new Node (preDayNode, "wentToGym", "false")
-							
+
 							}
 						}
 						else loop = false
@@ -225,22 +213,20 @@ public class WorkoutRepository {
 
 
 		}
-			
+
 	}
-	
+
 	def getDaysByID(String username, int id, String goal ){
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def personXML= new XmlParser().parse(personFile)
-		def userNode = personXML.person.find{it -> 
-			it.@username == username}	
+		def userNode = personXML.person.find{it ->
+			it.@username == username}
 
-		println "comment 0" 
+
 		if(userNode != null){
 			ArrayList<Day> daysByID = new ArrayList<Day>();
 			userNode.workoutPlan[0].day.each{it ->
-				println "fyrir if <----------------"
 				if(it.@id.toInteger() == id && goal.compareTo(it.@Goal ) == 0){
-					println"inni if <-------------------"
 						//herna var arrylist
 						daysByID.addAll(getSpecificDay(username, it.@Date ))
 					}
@@ -255,7 +241,7 @@ public class WorkoutRepository {
 		def personFile=new File("${new File(new File(".").getCanonicalPath())}//src//main//resources//persons.xml")
 		def personXML= new XmlParser().parse(personFile)
 
-		def userNode = personXML.person.find{it -> 
+		def userNode = personXML.person.find{it ->
 			it.@username == username}
 
 		if(userNode != null){
@@ -272,4 +258,4 @@ public class WorkoutRepository {
 
 
 
-}	
+}

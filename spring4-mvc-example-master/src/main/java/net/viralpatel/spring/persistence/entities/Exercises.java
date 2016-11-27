@@ -5,28 +5,21 @@ import java.util.ArrayList;
 
 public class Exercises{
   private String name;
-//	private String category;
 	private ArrayList<Set> set;
-  //Exercises extendar set SKOÐA BETUR
 	private int id;
 
-	public Exercises (String name, /*String category,*/ ArrayList<Set> set, int id){
+	public Exercises (String name, ArrayList<Set> set, int id){
 	    this.name=name;
-//	    this.category=category;
-	    this.set=set; // Skoða betur!!!
+	    this.set=set;
 	    this.id=id;
 	}
 
 	public String getName(){
 		return name;
 	}
-/*
-	public String getCategory(){
-		return category;
-	}
-*/
+
 	public ArrayList<Set> getSet(){
-		return set;// SKOÐA
+		return set;
 	}
 	public int getId(){
 		return id;
