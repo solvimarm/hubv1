@@ -590,6 +590,7 @@ $qnLaQIFOerz6bYGUSxqaMOSCyiCYDYTsMr/pmGt1eHA=
       </day>
     </workoutPlan>
   </person>
+<<<<<<< HEAD
   <person username="aaaa">
     <name>Ástrós Einarsdóttir</name>
     <password>pneNm5Oib7jVftjRzAPBlxxjIUDepY+/0sEI0kHHvhc=
@@ -600,6 +601,18 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
     <goal>stronger</goal>
     <gender>female</gender>
     <userWeight>50.0</userWeight>
+=======
+  <person username="berry">
+    <name>Vikki ymir</name>
+    <password>KxMPTceZspidYWmrtnyfx2PNpTRu8KHm9XuZvIe+j3U=
+$FIEFzSMFJC4cbCXEQAvIG7y3HmqRiuB/LAJe4buoip0=
+</password>
+    <email>a@b.is</email>
+    <age>23</age>
+    <goal>stronger</goal>
+    <gender>male</gender>
+    <userWeight>23.0</userWeight>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
     <nextUpdate>02/12/2016</nextUpdate>
     <workoutPlan>
       <day id="1" Date="27/11/2016" Goal="stronger">
@@ -607,6 +620,7 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <name>Squats</name>
           <set id="1">
             <reps>3</reps>
+<<<<<<< HEAD
             <dbWeight>4.0</dbWeight>
           </set>
           <set id="2">
@@ -620,6 +634,21 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <set id="4">
             <reps>3</reps>
             <dbWeight>4.0</dbWeight>
+=======
+            <dbWeight>2.0</dbWeight>
+          </set>
+          <set id="2">
+            <reps>3</reps>
+            <dbWeight>45.0</dbWeight>
+          </set>
+          <set id="3">
+            <reps>3</reps>
+            <dbWeight>23.0</dbWeight>
+          </set>
+          <set id="4">
+            <reps>3</reps>
+            <dbWeight>34.0</dbWeight>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
           </set>
           <set id="5">
             <reps>3</reps>
@@ -630,6 +659,7 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <name>Seated Leg Press</name>
           <set id="1">
             <reps>6</reps>
+<<<<<<< HEAD
             <dbWeight>4.0</dbWeight>
           </set>
           <set id="2">
@@ -643,12 +673,28 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <set id="4">
             <reps>6</reps>
             <dbWeight>4.0</dbWeight>
+=======
+            <dbWeight>32.0</dbWeight>
+          </set>
+          <set id="2">
+            <reps>6</reps>
+            <dbWeight>12.0</dbWeight>
+          </set>
+          <set id="3">
+            <reps>6</reps>
+            <dbWeight>11.0</dbWeight>
+          </set>
+          <set id="4">
+            <reps>6</reps>
+            <dbWeight>11.0</dbWeight>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
           </set>
         </exercise>
         <exercise id="3">
           <name>Romaian Deadlift</name>
           <set id="1">
             <reps>6</reps>
+<<<<<<< HEAD
             <dbWeight>4.0</dbWeight>
           </set>
           <set id="2">
@@ -662,12 +708,28 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <set id="4">
             <reps>6</reps>
             <dbWeight>4.0</dbWeight>
+=======
+            <dbWeight>44.0</dbWeight>
+          </set>
+          <set id="2">
+            <reps>6</reps>
+            <dbWeight>14.0</dbWeight>
+          </set>
+          <set id="3">
+            <reps>6</reps>
+            <dbWeight>52.0</dbWeight>
+          </set>
+          <set id="4">
+            <reps>6</reps>
+            <dbWeight>12.0</dbWeight>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
           </set>
         </exercise>
         <exercise id="4">
           <name>Lunges</name>
           <set id="1">
             <reps>10</reps>
+<<<<<<< HEAD
             <dbWeight>4.0</dbWeight>
           </set>
           <set id="2">
@@ -681,6 +743,21 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <set id="4">
             <reps>10</reps>
             <dbWeight>4.0</dbWeight>
+=======
+            <dbWeight>25.0</dbWeight>
+          </set>
+          <set id="2">
+            <reps>10</reps>
+            <dbWeight>12.0</dbWeight>
+          </set>
+          <set id="3">
+            <reps>10</reps>
+            <dbWeight>64.0</dbWeight>
+          </set>
+          <set id="4">
+            <reps>10</reps>
+            <dbWeight>66.0</dbWeight>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
           </set>
         </exercise>
         <wentToGym>true</wentToGym>
@@ -690,6 +767,7 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <name>Barbell Bench Press</name>
           <set id="1">
             <reps>3</reps>
+<<<<<<< HEAD
             <dbWeight>6.0</dbWeight>
           </set>
           <set id="2">
@@ -707,12 +785,27 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <set id="5">
             <reps>3</reps>
             <dbWeight>6.0</dbWeight>
+=======
+          </set>
+          <set id="2">
+            <reps>3</reps>
+          </set>
+          <set id="3">
+            <reps>3</reps>
+          </set>
+          <set id="4">
+            <reps>3</reps>
+          </set>
+          <set id="5">
+            <reps>3</reps>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
           </set>
         </exercise>
         <exercise id="2">
           <name>Dumbbell Bench Press</name>
           <set id="1">
             <reps>3</reps>
+<<<<<<< HEAD
             <dbWeight>6.0</dbWeight>
           </set>
           <set id="2">
@@ -730,12 +823,27 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <set id="5">
             <reps>3</reps>
             <dbWeight>6.0</dbWeight>
+=======
+          </set>
+          <set id="2">
+            <reps>3</reps>
+          </set>
+          <set id="3">
+            <reps>3</reps>
+          </set>
+          <set id="4">
+            <reps>3</reps>
+          </set>
+          <set id="5">
+            <reps>3</reps>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
           </set>
         </exercise>
         <exercise id="3">
           <name>Incline Dumbbell Bench Press</name>
           <set id="1">
             <reps>6</reps>
+<<<<<<< HEAD
             <dbWeight>6.0</dbWeight>
           </set>
           <set id="2">
@@ -749,12 +857,24 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           <set id="4">
             <reps>6</reps>
             <dbWeight>6.0</dbWeight>
+=======
+          </set>
+          <set id="2">
+            <reps>6</reps>
+          </set>
+          <set id="3">
+            <reps>6</reps>
+          </set>
+          <set id="4">
+            <reps>6</reps>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
           </set>
         </exercise>
         <exercise id="4">
           <name>Dips</name>
           <set id="1">
             <reps>6</reps>
+<<<<<<< HEAD
             <dbWeight>6.0</dbWeight>
           </set>
           <set id="2">
@@ -771,6 +891,19 @@ $g+X89W7SJPwUIJlF61Ap2Lp85RAR3mW/fkhvg8jj8q4=
           </set>
         </exercise>
         <wentToGym>true</wentToGym>
+=======
+          </set>
+          <set id="2">
+            <reps>6</reps>
+          </set>
+          <set id="3">
+            <reps>6</reps>
+          </set>
+          <set id="4">
+            <reps>6</reps>
+          </set>
+        </exercise>
+>>>>>>> 31747d4e2ddaa938fba9cfe6a44558360a8e124b
       </day>
       <day id="3" Date="29/11/2016" Goal="stronger">
         <exercise id="1">
